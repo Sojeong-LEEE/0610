@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dropdown</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    ul {
+        list-style: none;
+    }
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+    .nav__bar {
+        width: 300px;
+        display: flex;
+        margin: 0 auto;
+        color: darkblue;
+    }
+    .nav__menu {
+        background: lightcoral;
+    }
+    .nav__item {
+        width: 100px;
+    }
+    .nav__bar a {
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+    }
+    .nav__submenu {
+        background: darkblue;
+        color: lightcoral;
+    }
+</style>
+</head>
+<body>
+<nav>
+    <ul class="nav__bar">
+        <li class="nav__item">
+            <a href="#" class="nav__menu">
+                menu1
+            </a>
+            <div class="nav__submenu">
+                <a href="#">sub-menu</a>
+                <a href="#">sub-menu</a>
+                <a href="#">sub-menu</a>
+                <a href="#">sub-menu</a>
+            </div>
+        </li>
+        <li class="nav__item">
+            <a href="#" class="nav__menu">
+                menu2
+            </a>
+            <div class="nav__submenu">
+                <a href="#">sub-menu</a>
+                <a href="#">sub-menu</a>
+                <a href="#">sub-menu</a>
+                <a href="#">sub-menu</a>
+            </div>
+        </li>
+        <li class="nav__item">
+            <a href="#" class="nav__menu">
+                menu3
+            </a>
+            <div class="nav__submenu">
+                <a href="#">sub-menu</a>
+                <a href="#">sub-menu</a>
+                <a href="#">sub-menu</a>
+                <a href="#">sub-menu</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    var $submenu = $('.nav__submenu');
+    var $navbarItem = $('.nav__item');
+        $submenu.hide();
+    
+        /* 마우스가 왔을 때 submenu 보여라 */
+        $navbarItem.mouseenter(function(){
+            console.log(this);
+            $(this).children('.nav__submenu').stop().slideDown();
+            /* $submenu slideDown(); */
+        })
+        $navbarItem.mouseleave(function(){
+            $(this).children('.nav__submenu').stop().slideUp();
+        })
+</script>
+</body>
+</html>

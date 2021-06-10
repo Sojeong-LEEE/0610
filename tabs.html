@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tabs prac</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --mb-0-5: 0.5rem;
+        --mb-1: 1rem;
+        --mb-1-5: 1.5rem;
+        --mb-2: 2rem;
+        --mb-2-5: 2.5rem;
+    }
+
+    .flexbox-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .tab {
+        width: 660px;
+        margin: 0 auto;
+        background: #295F2E;
+        color: #FFE67C;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    .tab__desc {
+        background: #FFE67C;
+        color: #295F2E;
+        padding: var(--mb-1-5);
+    }
+    .tab__menu {
+        display: flex;
+    }
+
+    .tab__menu a {
+        width: 100px;
+        height: 50px;
+    }
+
+    .tab__menu a.selected {
+        background: #FFE67C;
+        color: #295F2E;
+    }
+</style>
+</head>
+<body>
+    <section>
+        <div class="tab">
+            <div class="tab__menu">
+                <a href="#" class="flexbox-center selected">tab1</a>
+                <a href="#" class="flexbox-center">tab2</a>
+                <a href="#" class="flexbox-center">tab3</a>
+                <a href="#" class="flexbox-center">tab4</a>
+            </div>
+            <div class="tab__content">
+                <div class="tab__desc">
+                    <h1>tab1</h1>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex officiis ad molestiae architecto nisi consequuntur sunt delectus provident consequatur, placeat corrupti sit ab, esse voluptatibus voluptate, ullam itaque magni ipsum.
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex officiis ad molestiae architecto nisi consequuntur sunt delectus provident consequatur, placeat corrupti sit ab, esse voluptatibus voluptate, ullam itaque magni ipsum.
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex officiis ad molestiae architecto nisi consequuntur sunt delectus provident consequatur, placeat corrupti sit ab, esse voluptatibus voluptate, ullam itaque magni ipsum.
+                    </p>
+                </div>
+                <div class="tab__desc">
+                    <h1>tab2</h1>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex officiis ad molestiae architecto nisi consequuntur sunt delectus provident consequatur, placeat corrupti sit ab, esse voluptatibus voluptate, ullam itaque magni ipsum.
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex officiis ad molestiae architecto nisi consequuntur sunt delectus provident consequatur, placeat corrupti sit ab, esse voluptatibus voluptate, ullam itaque magni ipsum.
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex officiis ad molestiae architecto nisi consequuntur sunt delectus provident consequatur, placeat corrupti sit ab, esse voluptatibus voluptate, ullam itaque magni ipsum.
+                    </p>
+                </div>
+                <div class="tab__desc">
+                    <h1>tab3</h1>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex officiis ad molestiae architecto nisi consequuntur sunt delectus provident consequatur, placeat corrupti sit ab, esse voluptatibus voluptate, ullam itaque magni ipsum.
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex officiis ad molestiae architecto nisi consequuntur sunt delectus provident consequatur, placeat corrupti sit ab, esse voluptatibus voluptate, ullam itaque magni ipsum.
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex officiis ad molestiae architecto nisi consequuntur sunt delectus provident consequatur, placeat corrupti sit ab, esse voluptatibus voluptate, ullam itaque magni ipsum.
+                    </p>
+                </div>
+                <div class="tab__desc">
+                    <h1>tab4</h1>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex officiis ad molestiae architecto nisi consequuntur sunt delectus provident consequatur, placeat corrupti sit ab, esse voluptatibus voluptate, ullam itaque magni ipsum.
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex officiis ad molestiae architecto nisi consequuntur sunt delectus provident consequatur, placeat corrupti sit ab, esse voluptatibus voluptate, ullam itaque magni ipsum.
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex officiis ad molestiae architecto nisi consequuntur sunt delectus provident consequatur, placeat corrupti sit ab, esse voluptatibus voluptate, ullam itaque magni ipsum.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+
+        var $desc = $('.tab__desc');
+        var $tabMenu = $('.tab__menu a');
+
+        $desc.hide();
+        $desc.eq(0).show();
+
+        $tabMenu.click(function(){
+            var idx = $(this).index();
+            $tabMenu.removeClass('selected');
+            $(this).addClass('selected');
+            $desc.hide();
+            $desc.eq(idx).slideDown();
+        })
+    </script>
+</body>
+</html>
